@@ -1,8 +1,10 @@
-name: Build Kernel
+name: build kernel
 on:
+  workflow_call:
+  workflow_dispatch:
   push:
     branches:
-      - main
+      - master
   pull_request:
 jobs:
   build-kernel:
@@ -10,7 +12,7 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       # Step 2: Set up dependencies
       - name: Set up build environment
         run: |
@@ -37,7 +39,7 @@ jobs:
       # Step 4: Upload build artifacts (optional)
       - name: Upload build artifacts
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: kernel-build
           path: out/target/product/a24/obj/KERNEL_OBJ/
