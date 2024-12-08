@@ -78,8 +78,8 @@ def main(**args):
         defconfig_dir = 'arch/arm/comfigs'
     elif os.path.exists('%s/arch/arm64/configs/%s' % (abs_kernel_dir, project_defconfig_name)):
         defconfig_dir = 'arch/arm64/configs'
-   else:
-        print 'Error: cannot find project defconfig file under ' + abs_kernel_dir)
+    else:
+        print 'Error: cannot find project defconfig file under ' + abs_kernel_dir
         sys.exit(2)
     project_defconfig = '%s/%s/%s' % (abs_kernel_dir, defconfig_dir, project_defconfig_name)
 
